@@ -1,4 +1,5 @@
 import React from 'react'
+import { ArrowUpward, ArrowDownward } from '@material-ui/icons';
 
 const styles = {
  bold: {
@@ -11,11 +12,17 @@ function Table(props) {
     <table className="table">
       <thead style={styles.bold}>
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
+        <th scope="col" onClick={props.onFilter.bind(null, 'id')}> Id
+          { props.direction === 'asc' ? <ArrowUpward/> : <ArrowDownward/>}
+        </th>
+        <th scope="col" onClick={props.onFilter.bind(null, 'firstName')}>First name
+          {props.direction === 'asc' ? <ArrowUpward/> : <ArrowDownward/>}</th>
+        <th scope="col" onClick={props.onFilter.bind(null, 'lastName')}>Last name
+          {props.direction === 'asc' ? <ArrowUpward/> : <ArrowDownward/>}</th>
+        <th scope="col" onClick={props.onFilter.bind(null, 'email')}>Email
+          {props.direction === 'asc' ? <ArrowUpward/> : <ArrowDownward/>}</th>
+        <th scope="col" onClick={props.onFilter.bind(null, 'phone')}>Phone
+          {props.direction === 'asc' ? <ArrowUpward/> : <ArrowDownward/>}</th>
       </tr>
       </thead>
       <tbody>

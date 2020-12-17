@@ -1,5 +1,5 @@
 import React from 'react'
-import loaderCss from './loader.css'
+import  './loader.css'
 
 const styles = {
   div: {
