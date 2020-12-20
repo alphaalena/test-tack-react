@@ -3,8 +3,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  height: 100px;
+  background-color: #7eadef;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +15,11 @@
 
 .App-link {
   color: #61dafb;
+}
+.App-paginate {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 @keyframes App-logo-spin {
