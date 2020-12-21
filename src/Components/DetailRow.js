@@ -2,14 +2,17 @@ import React from 'react'
 
 function DetailRow({person}) {
   return (
-  <div>
+  <div className='detailRow'>
+    <div className='modalWindow'>
     <p>Выбран пользователь
       <b>
         {' ' + person.firstName + ' ' + person.lastName}
       </b>
     </p>
     <p>Описание: <br/>
-      <textarea cols="40" rows="2" defaultValue={person.description}/>
+      <b>
+        {person.description}
+      </b>
     </p>
     <p> Адрес проживания:
         <b>
@@ -31,7 +34,7 @@ function DetailRow({person}) {
         {' ' + person.address.zip}
       </b>
     </p>
-
+    </div>
   </div>
   )}
 

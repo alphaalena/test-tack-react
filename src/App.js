@@ -68,7 +68,11 @@ import Search from './Components/Search'
       if (!search) {
         return data
       }
-      return data.filter( item => {})
+      return data.filter( item => {
+        return item['firstName'].toLowerCase().includes(search.toLowerCase()) ||
+          item['lastName'].toLowerCase().includes(search.toLowerCase()) ||
+          item['email'].toLowerCase().includes(search.toLowerCase())
+      })
     }
 
     render() {
@@ -82,6 +86,7 @@ import Search from './Components/Search'
        )
      }
      const filteredData = this.getFilteredData()
+     const pageCount = Math.ceil(filteredData.length / PaginationSize)
      const displayData = Lodash.chunk(filteredData, PaginationSize)[this.state.currentPage]
 
       return (
@@ -106,7 +111,7 @@ import Search from './Components/Search'
                 nextLabel={'>'}
                 breakLabel={'...'}
                 breakClassName={'break-me'}
-                pageCount={20}
+                pageCount={pageCount}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={this.handlePageClick}

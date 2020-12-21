@@ -26,7 +26,7 @@ function Table(props) {
       </tr>
       </thead>
       <tbody>
-      {props.data.map(item => (
+      {props.data && props.data.map(item => (
         <tr key={item.id + item.phone} onClick={props.onRowSelect.bind(null, item)}>
           <td>{item.id}</td>
           <td>{item.firstName}</td>
