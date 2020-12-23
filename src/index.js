@@ -12,6 +12,7 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// TODO: Это запуск веб-метрики, которая в тестовом точно не нужна и палит тебя
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

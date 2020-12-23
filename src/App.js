@@ -8,6 +8,8 @@ import DetailRow from './Components/DetailRow'
 import SwitchData from './Components/Switch-data'
 import Search from './Components/Search'
 
+// TODO: Сделай на всем проекте автоформат (Ctrl + Alt + L)
+// TODO: У тебя в проекте появился файл .editorconfig, когда будешь читать это - позови меня, я тебе объясню что это
   class App extends React.Component {
 
    state = {
@@ -18,7 +20,7 @@ import Search from './Components/Search'
       fieldFilter: 'id',
       row: null,
       currentPage: 0,
-      search: ''
+      search: '',
     }
 
 
@@ -59,6 +61,7 @@ import Search from './Components/Search'
       this.setState({currentPage: selected})
     }
 
+    // TODO: Должно быть единообразие в названиях - строго camelCase, тоже самое касается названий файлов - посмотри как они называются
     SearchHandler = search => (
       this.setState({search, currentPage: 0})
     )
@@ -76,8 +79,11 @@ import Search from './Components/Search'
     }
 
     render() {
+     // TODO: camelCase
      const PaginationSize = 50
 
+      // TODO: Только тут мне стало понятно, как используется переменная isSwitchData
+      // TODO: Измени ей название на isDataLoaded
      if (!this.state.isSwitchData) {
        return (
          <div className="container">

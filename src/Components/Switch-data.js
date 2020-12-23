@@ -1,5 +1,7 @@
 import React from 'react'
 
+// TODO: Название компонента ближе - DataLoader
+// TODO: SwitchData - это что-то вроде "Переключение данных", но ты их не переключаешь, а грузишь, и только раз
 function SwitchData(props) {
   const smallUrl =  `http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
 

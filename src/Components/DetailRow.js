@@ -1,5 +1,6 @@
 import React from 'react'
 
+// TODO: Название - RowDetails, а лучше даже - PersonDetails
 function DetailRow({person}) {
   return (
   <div className='detailRow'>
