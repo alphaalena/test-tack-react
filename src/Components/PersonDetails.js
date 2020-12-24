@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DetailRow({person}) {
+function PersonDetails({person}) {
   return (
   <div className='detailRow'>
     <div className='modalWindow'>
@@ -38,4 +38,4 @@ function DetailRow({person}) {
   </div>
   )}
 
-export default DetailRow
+export default PersonDetails

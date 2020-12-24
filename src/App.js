@@ -2,16 +2,17 @@ import React from 'react'
 import ReactPaginate from 'react-paginate';
 import './App.css';
 import Loader from './Components/Loader/loader'
-import Table from './Components/Table/table'
+import Table from './Components/Table/Table'
 import Lodash from 'lodash'
-import DetailRow from './Components/DetailRow'
-import SwitchData from './Components/Switch-data'
+import DetailRow from './Components/PersonDetails'
+import DataLoader from './Components/DataLoader'
 import Search from './Components/Search'
+
 
   class App extends React.Component {
 
    state = {
-      isSwitchData: false,
+      isDataLoaded: false,
       isLoading: false,
       data: [],
       direction: 'asc',
@@ -49,7 +50,7 @@ import Search from './Components/Search'
 
   modeSelectHandler = async url => {
       this.setState({
-        isSwitchData: true,
+        isDataLoaded: true,
         isLoading: true,
       })
       await this.fetchData(url)
@@ -59,7 +60,7 @@ import Search from './Components/Search'
       this.setState({currentPage: selected})
     }
 
-    SearchHandler = search => (
+    searchHandler = search => (
       this.setState({search, currentPage: 0})
     )
     getFilteredData() {
@@ -76,25 +77,25 @@ import Search from './Components/Search'
     }
 
     render() {
-     const PaginationSize = 50
+     const paginationSize = 50
 
-     if (!this.state.isSwitchData) {
+     if (!this.state.isDataLoaded) {
        return (
          <div className="container">
-           <SwitchData onSelect={this.modeSelectHandler}/>
+           <DataLoader onSelect={this.modeSelectHandler}/>
          </div>
        )
      }
      const filteredData = this.getFilteredData()
-     const pageCount = Math.ceil(filteredData.length / PaginationSize)
-     const displayData = Lodash.chunk(filteredData, PaginationSize)[this.state.currentPage]
+     const pageCount = Math.ceil(filteredData.length / paginationSize)
+     const displayData = Lodash.chunk(filteredData, paginationSize)[this.state.currentPage]
 
       return (
         <div className="App">
           <header className="App-header">Customer information</header>
           { this.state.isLoading ? <Loader/> :
            <div>
-              <Search onSearch={this.SearchHandler}/>
+              <Search onSearch={this.searchHandler}/>
               <Table data={displayData}
                      onFilter={this.onFilter}
                      direction={this.state.direction}
@@ -104,7 +105,7 @@ import Search from './Components/Search'
            </div>
           }
           {
-            this.state.data.length > PaginationSize &&
+            this.state.data.length > paginationSize &&
               <nav className="App-paginate" >
               <ReactPaginate
                 previousLabel={'<'}
